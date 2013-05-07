@@ -1,0 +1,44 @@
+{
+  "name": "grunt-jst-concat",
+  "description": "concat jst file to module's js file",
+  "version": "0.1.0",
+  "homepage": "https://github.com/willerce/grunt-jst-concat",
+  "author": {
+    "name": "willerce",
+    "email": "willerce@gmail.com",
+    "url": "http://willerce.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/willerce/grunt-jst-concat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willerce/grunt-jst-concat/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/willerce/grunt-jst-concat/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-jst": "~0.5.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
