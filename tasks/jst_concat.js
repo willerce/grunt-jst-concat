@@ -16,7 +16,6 @@ module.exports = function (grunt) {
       separator_end: '',
       jst_path: 'tmp/template/',
       jst_ext: ".jst",
-      namespace: 'JST',
       pattern: /CustomGetTemplateFn\s*\(\'(.*?).html\'\)/g,
       replace_text: "$1",
       replace: null
