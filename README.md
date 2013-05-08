@@ -37,17 +37,48 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.separator_start
 Type: `String`
-Default value: `',  '`
+Default value: `''`
 
 A string value that is used to do something with whatever.
 
-#### options.punctuation
+#### options.separator_end
 Type: `String`
-Default value: `'.'`
+Default value: `''`
 
-A string value that is used to do something else with whatever else.
+A string value that is used to do something with whatever.
+
+#### options.jst_path
+Type: `String`
+Default value: `'tmp/template/'`
+
+compiled jst template path
+
+#### options.ext
+Type: `String`
+Default value: `'.jst'`
+
+jst template extension
+
+#### options.pattern
+Type: `String`
+Default value: `'/CustomGetTemplateFn\s*\(\'(.*?).html\'\)/g'`
+
+A regex pattern that is used to get template path list
+
+#### options.replace_text
+Type: `String`
+Default value: `'$1'`
+
+A string value that is used to replace template name
+
+#### options.replace
+Type: `Function`
+Default value: `null`
+
+A function that is used to do something you want.
+
 
 ### Usage Examples
 
@@ -59,7 +90,7 @@ grunt.initConfig({
   jst_concat: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'tmp/modules/BookModule.js': ['test/fixtures/modules/BookModule.js']
     },
   },
 })
@@ -72,12 +103,20 @@ In this example, custom options are used to do something else with whatever else
 grunt.initConfig({
   jst_concat: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      separator_start: '/**start**/',
+      separator_end: '/**end**/',
+      jst_path: 'tmp/template/',
+      ext: ".jst",
+      pattern: /CustomGetTemplateFn\s*\(\'(.*?).html\'\)/g,
+      replace: function(jst){
+        jst = jst.replace('this.ajst=this.ajst||{},', "");
+        jst = jst.replace(/\n|\r/g, "");
+        return jst;
+      }
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+      'tmp/modules/ShopModule.js': ['test/fixtures/modules/ShopModule.js']
+    }
   },
 })
 ```
